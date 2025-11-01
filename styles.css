@@ -87,15 +87,65 @@ img {
 
 /*=============== THEME ===============*/
 
+.nav__buttons {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
 
+.change-theme {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: color .3s;
+
+}
 /*========== Variables Dark theme ==========*/
 
+body.dark-theme {
+  --first-color: hsl(19, 64%, 58%);
+  --first-color-alt: hsl(19, 64%, 54%);
+  --title-color: hsl(19, 24%, 85%);
+  --text-color: hsl(19, 16%, 65%);
+  --body-color: hsl(19, 12%, 8%);
+  --container-color: hsl(19, 10%, 10%);
+}
 
 /*========== 
     Color changes in some parts of 
     the website, in light theme
 ==========*/
 
+.dark-theme .bg-header,
+.dark-theme .nav__menu,
+.dark-theme .scrollup {
+  box-shadow: 0 2px 8px hsla(19, 64%, 4%, .5);
+}
+
+.dark-theme .popular__card {
+  box-shadow: 0 8px 20px hsla(19, 64%, 4%, .2);
+}
+
+.dark-theme .newsletter__content {
+  background-color: var(--container-color);
+}
+
+.dark-theme .newsletter__form,
+.dark-theme .newsletter__input {
+  background-color: var(--body-color);
+}
+
+.dark-theme::-webkit-scrollbar {
+  background-color: hsl(19, 8%, 15%);
+}
+
+.dark-theme::-webkit-scrollbar-thumb {
+  background-color: hsl(19, 8%, 25%);
+}
+
+.dark-theme::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(19, 8%, 35%);
+}
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
@@ -330,7 +380,7 @@ img {
 
 .button i {
   font-size: 1.5rem;
-  transition: tranform .3s;
+  transition: transform .3s;
 }
 
 .button:hover {
@@ -491,7 +541,7 @@ img {
 }
 
 .recently__leaf-1{
-  width: 40px;
+  width: 80px;
   top: 17rem;
   left: -1rem;
   transform: rotate(15deg);
@@ -565,7 +615,7 @@ img {
 
 .newsletter__container,
 .newsletter__form,
-.nesletter__input{
+.newsletter__input{
   transition: background .4s;
   /* for dark mode animaition*/
 }
@@ -713,12 +763,45 @@ img {
 
 /*=============== SCROLL BAR ===============*/
 
+::-webkit-scrollbar {
+  width: 0.6rem;
+  border-radius: .5rem;
+  background-color: hsl(19, 8%, 75%);
+}
 
+::-webkit-scrollbar-thumb {
+  border-radius: .5rem;
+  background-color: hsl(19, 8%, 65%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(19, 8%, 55%);
+}
 /*=============== SCROLL UP ===============*/
 
+.scrollup {
+  position: fixed;
+  right: 1rem;
+  bottom: -50%;
+  background-color: var(--container-color);
+  box-shadow: 0 4px 12px hsla(19, 64%, 24%, .1);
+  display: inline-flex;
+  padding: .35rem;
+  border-radius: 25rem;
+  font-size: 1.1rem;
+  color: var(--first-color);
+  z-index: var(--z-tooltip);
+  transition: bottom .3s, transform .3s, background .4s;
+}
 
+.scrollup:hover {
+  transform: translateY(-.25rem);
+}
 /* Show Scroll Up*/
 
+.show-scroll{
+  bottom: 3rem;
+}
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
@@ -907,7 +990,7 @@ img {
   }
 
   .popular__container{
-    grid-template-columns: repeat(3,262px);
+    grid-template-columns: repeat(3, 262px);
     column-gap: 3.5rem;
     padding-block: 6rem 4rem;
   }
@@ -1005,7 +1088,7 @@ img {
     font-size: var(--normal-font-size);
   }
 
-  .footer__socital-link {
+  .footer__social-link {
     font-size: 1.5rem;
   }
 
@@ -1028,6 +1111,9 @@ img {
     right: 1rem;
   }
 
+  .scrollup {
+    right: 3rem;
+  }
 
 }
 
